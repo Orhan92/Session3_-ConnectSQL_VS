@@ -16,9 +16,11 @@ namespace Add_Song_To_SQL_Console
 
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
+            //Establishing connection with SQL
             connection = new SqlConnection(@"Data Source=(local)\SQLExpress;Initial Catalog=MusicDataBase;Integrated Security=SSPI;");
             connection.Open();
 
+            //Code below, Add new Songs into MusicDataBase in SQL
             Console.WriteLine("Add a new song!");
 
             Console.Write("Title: ");
@@ -28,7 +30,7 @@ namespace Add_Song_To_SQL_Console
             int insertLength = int.Parse(Console.ReadLine());
 
             Console.Write("Does your song have a music video [yes/no]: ");
-            string insertVideo = Console.ReadLine();
+            string insertVideo = Console.ReadLine().ToLower();
             if (insertVideo == "yes" || insertVideo == "y")
             {
                 insertVideo = true.ToString();
@@ -40,34 +42,49 @@ namespace Add_Song_To_SQL_Console
 
             Console.Write("Lyrics (if you have, otherwise press enter): ");
             string insertLyrics = Console.ReadLine();
-            if (insertLyrics == string.Empty)
-            {
-                insertLyrics = "NULL";
-            }
 
 
             string insertSQL = "INSERT INTO Song (Title, Length, HasMusicVideo, Lyrics) VALUES (@Title, @Length, @HasMusicVideo, @Lyrics)";
             SqlCommand insertCommand = new SqlCommand(insertSQL, connection);
+
+            //Insert Song Title
             insertCommand.Parameters.Add(new SqlParameter
             {
                 ParameterName = "@Title",
                 Value = insertTitle
             });
+
+            //Insert Song Length
             insertCommand.Parameters.Add(new SqlParameter
             {
                 ParameterName = "@Length",
                 Value = insertLength
             });
+            
+            //Insert if Song has MusicVideo
             insertCommand.Parameters.Add(new SqlParameter
             {
                 ParameterName = "@HasMusicVideo",
                 Value = insertVideo
             });
-            insertCommand.Parameters.Add(new SqlParameter
+
+            //Insert if Song has Lyrics, else we jump to Else-statements
+            if (insertLyrics != string.Empty)
             {
-                ParameterName = "@Lyrics",
-                Value = insertLyrics
-            });
+                insertCommand.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@Lyrics",
+                    Value = insertLyrics
+                });
+            }
+            else
+            {
+                insertCommand.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@Lyrics",
+                    Value = DBNull.Value
+                });
+            }
 
             insertCommand.ExecuteNonQuery();
 
