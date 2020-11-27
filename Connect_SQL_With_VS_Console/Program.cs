@@ -13,7 +13,7 @@ namespace Add_Song_To_SQL_Console
         private static SqlConnection connection;
         public static void Main()
         {
-
+            
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
             //Establishing connection with SQL

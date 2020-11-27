@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session3_ ConnectSQL_VS", "Session3_ ConnectSQL_VS\Session3_ ConnectSQL_VS.csproj", "{C90B9764-6880-4BD7-B84A-8FB033EC844B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Add_Song_To_SQL_Console", "Connect_SQL_With_VS_Console\Add_Song_To_SQL_Console.csproj", "{0463A802-E436-40F3-A1E9-589FE5FC692B}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C90B9764-6880-4BD7-B84A-8FB033EC844B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C90B9764-6880-4BD7-B84A-8FB033EC844B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C90B9764-6880-4BD7-B84A-8FB033EC844B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C90B9764-6880-4BD7-B84A-8FB033EC844B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0463A802-E436-40F3-A1E9-589FE5FC692B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0463A802-E436-40F3-A1E9-589FE5FC692B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0463A802-E436-40F3-A1E9-589FE5FC692B}.Release|Any CPU.ActiveCfg = Release|Any CPU
